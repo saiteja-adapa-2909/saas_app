@@ -8,13 +8,27 @@ const cors = require("cors");
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+const whitelist = ["https://saas-71jm7y3zg-saiteja-adapas-projects.vercel.app", "https://wk4h5tms-3000.inc1.devtunnels.ms"];
 const corsOptions = {
-  origin: "https://saas-71jm7y3zg-saiteja-adapas-projects.vercel.app/",
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true,
 };
 
 app.use(cors(corsOptions));
+
+// app.use(cors());
+// const corsOptions = {
+//   origin: "https://saas-71jm7y3zg-saiteja-adapas-projects.vercel.app/",
+//   credentials: true,
+// };
+
+// app.use(cors(corsOptions));
 
 const db = mysql.createConnection({
   host: "localhost",
