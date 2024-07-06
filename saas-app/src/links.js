@@ -1,3 +1,3 @@
-const baseURL = "https://wk4h5tms-4000.inc1.devtunnels.ms";
+const baseURL = "https://saas-app-res3.onrender.com";
 
 export default baseURL;
