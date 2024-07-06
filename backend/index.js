@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 const corsOptions = {
-  origin: "https://wk4h5tms-3000.inc1.devtunnels.ms",
+  origin: "https://saas-71jm7y3zg-saiteja-adapas-projects.vercel.app/",
   credentials: true,
 };
 
